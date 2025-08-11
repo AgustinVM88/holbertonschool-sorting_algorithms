@@ -35,6 +35,7 @@ int Lomuto(int *array, size_t size, int low, int high)
 		{
 			if (array[j] != array[i])
 			{
+				tmp = array[i];
 				array[i] = array[j];
 				array[j] = tmp;
 				print_array(array, size);
@@ -44,6 +45,7 @@ int Lomuto(int *array, size_t size, int low, int high)
 	}
 	if (array[high] != array[i])
 	{
+		tmp = array[i];
 		array[i] = array[high];
 		array[high] = tmp;
 		print_array(array, size);
@@ -67,7 +69,7 @@ void recursive_quicksort(int *array, size_t size, int low, int high)
 
 	if (low < high)
 	{
-		a = Lomuto(array, size, low, high);
 		recursive_quicksort(array, size, low, a - 1);
+		recursive_quicksort(array, size, a + 1, high);
 	}
 }
