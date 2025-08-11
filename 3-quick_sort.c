@@ -69,6 +69,7 @@ void recursive_quicksort(int *array, size_t size, int low, int high)
 
 	if (low < high)
 	{
+		a = Lomuto(array, size, low, high);
 		recursive_quicksort(array, size, low, a - 1);
 		recursive_quicksort(array, size, a + 1, high);
 	}
